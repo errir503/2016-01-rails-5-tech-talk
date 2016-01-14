@@ -10,7 +10,8 @@ class TablesController < ApplicationController
   end
 
   def estimate
-    @table.estimate(params[:name], params[:estimate])
+    @table.estimate(params[:player], params[:estimate])
+    redirect_to "/#{@table.name}"
   end
 
   private

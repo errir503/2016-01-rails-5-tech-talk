@@ -15,11 +15,11 @@ class Table
   end
 
   def leave(player)
-    player_estimates.delete(player)
+    @player_estimates.delete(player)
   end
 
   def estimate(player, estimation = nil)
-    player_estimates[player] = estimation
+    @player_estimates[player] = estimation
   end
 
   def viable_estimations

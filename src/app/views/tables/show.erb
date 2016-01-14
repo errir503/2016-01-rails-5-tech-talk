@@ -1,0 +1,11 @@
+<ul>
+<% @table.player_estimates.each do |player, estimation| %>
+  <li><b><%= player %></b>: <%= estimation %></li>
+<% end %>
+</ul>
+
+<%= form_tag("/#{@table.name}", method: :post) do %>
+  <%= text_field_tag(:player) %>
+  <%= number_field_tag(:estimate) %>
+  <%= submit_tag("Estimate!") %>
+<% end %>

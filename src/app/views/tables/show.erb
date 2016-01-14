@@ -1,11 +1,14 @@
-<ul>
-<% @table.player_estimates.each do |player, estimation| %>
-  <li><b><%= player %></b>: <%= estimation %></li>
-<% end %>
-</ul>
+<h1><%= "Table #{@table.name}" %></h1>
+<dl id="estimates">
+  <% @table.player_estimates.each do |player, estimation| %>
+      <dt><%= player %></dt>
+      <dd><%= estimation %></dd>
+  <% end %>
+</dl>
+<span id="result"><%= @table.average %></span>
 
-<%= form_tag("/#{@table.name}", method: :post) do %>
-  <%= text_field_tag(:player) %>
-  <%= number_field_tag(:estimate) %>
-  <%= submit_tag("Estimate!") %>
+<%= form_tag("#", method: :post) do %>
+    <%= text_field_tag(:player) %>
+    <%= number_field_tag(:estimate) %>
+    <%= submit_tag("Estimate!") %>
 <% end %>

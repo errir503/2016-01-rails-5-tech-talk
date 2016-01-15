@@ -11,6 +11,7 @@ App.table = App.cable.subscriptions.create { channel: "TableChannel", table_id: 
     estimates_html.empty()
     for player, estimation of data['player_estimates']
       estimates_html.append(@render_estimation(player, estimation))
+    $('#average').html(data['average'])
 
   estimate: (player, estimation) ->
     @perform('estimate', player: player, estimation: estimation)
@@ -24,8 +25,9 @@ App.table = App.cable.subscriptions.create { channel: "TableChannel", table_id: 
       estimation = $('input[name="estimate"]').val()
       @estimate(player, estimation)
       return false
-    $('form input[type="reset"]').click =>
-      @reset
+    $('form button[type="reset"]').click =>
+      @reset()
+      false
 
   render_estimation: (player, estimation) ->
     """

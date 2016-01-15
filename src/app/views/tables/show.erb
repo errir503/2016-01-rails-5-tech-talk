@@ -5,10 +5,11 @@
       <dd><%= estimation %></dd>
   <% end %>
 </dl>
-<span id="result"><%= @table.average %></span>
+<span id="average"><%= @table.average %></span>
 
 <%= form_tag("#", method: :post) do %>
     <%= text_field_tag(:player) %>
     <%= number_field_tag(:estimate) %>
     <%= submit_tag("Estimate!") %>
+    <%= button_tag "Reset!", type: :reset %>
 <% end %>

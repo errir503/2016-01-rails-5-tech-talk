@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Table, :type => :model do
+RSpec.describe Table, type: :model do
   let(:table_name) { 'MyTable' }
   let(:player_estimates) { { player1: 100, player2: 1, player3: 3, player4: 4, playerX: 'Coffee?', playerZ: nil } }
   let(:players) { player_estimates.keys }
@@ -38,11 +38,11 @@ RSpec.describe Table, :type => :model do
 
   describe '#estimate' do
     it 'sets the estimation of the player' do
-      expect {
+      expect do
         table.estimate(players.first, 5)
-      }.to change {
-            table.player_estimates[players.first]
-          }.to(5)
+      end.to change {
+               table.player_estimates[players.first]
+             }.to(5)
     end
   end
 
@@ -84,12 +84,14 @@ RSpec.describe Table, :type => :model do
 
   describe 'to_h' do
     subject { table.to_h }
-    let(:expected_hash) { {
+    let(:expected_hash) do
+      {
         name: table_name,
         player_estimates: player_estimates,
         player_count: players.count,
         average: average
-    } }
+      }
+    end
     it { is_expected.to eq(expected_hash) }
   end
 end

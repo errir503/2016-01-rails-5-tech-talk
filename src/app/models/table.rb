@@ -1,15 +1,15 @@
 class Table
   attr_accessor :name, :player_estimates
 
-  @@tables = Hash.new do |hash, name|
+  @tables = Hash.new do |hash, name|
     hash[name] = Table.new(name)
   end
 
   def self.find_or_create(name)
-    @@tables[name]
+    @tables[name]
   end
 
-  def initialize(name, player_estimates={})
+  def initialize(name, player_estimates = {})
     @name = name
     @player_estimates = player_estimates
   end
@@ -31,7 +31,7 @@ class Table
   end
 
   def estimates
-    player_estimates.values.map(&:to_f).reject{ |es| es.nil? || es <= 0 }
+    player_estimates.values.map(&:to_f).reject { |es| es.nil? || es <= 0 }
   end
 
   def viable_estimations
@@ -52,10 +52,10 @@ class Table
 
   def to_h
     {
-        name: name,
-        player_estimates: player_estimates,
-        player_count: player_estimates.count,
-        average: average
+      name: name,
+      player_estimates: player_estimates,
+      player_count: player_estimates.count,
+      average: average
     }
   end
 

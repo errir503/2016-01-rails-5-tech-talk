@@ -1,6 +1,6 @@
-# Be sure to restart your server when you modify this file. Action Cable runs in an EventMachine loop that does not support auto reloading.
+# Be sure to restart your server when you modify this file. Action Cable runs in an EventMachine
+# loop that does not support auto reloading.
 class TableChannel < ApplicationCable::Channel
-
   # Called when a client connects (before client calls ```connected()```)
   def subscribed
     stream_from table.to_s
@@ -14,7 +14,7 @@ class TableChannel < ApplicationCable::Channel
     ActionCable.server.broadcast table, table.to_h
   end
 
-  def reset(data)
+  def reset(_data)
     # Run the business-logic
     table.reset!
     # Re-broadcast it again to all subscribers

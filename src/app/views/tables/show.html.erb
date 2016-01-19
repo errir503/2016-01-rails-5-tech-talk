@@ -13,7 +13,7 @@
 <hr>
 <p>
   Add an estimate: <br />
-  <%= form_tag("#", method: :post) do %>
+  <%= form_tag(table_path(@table.name), method: :post) do %>
       <%= text_field_tag(:player) %>
       <%= number_field_tag(:estimate) %>
       <%= submit_tag("Estimate!") %>

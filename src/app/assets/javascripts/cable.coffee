@@ -8,4 +8,6 @@
 #= require_tree ./channels
 #
 @App ||= {}
+
+# Initalize ActionCable on the client-side. The consumers are found in channels/
 App.cable = ActionCable.createConsumer()

@@ -1,0 +1,22 @@
+<h1><%= "Table #{@table.name}" %></h1>
+
+<dl id="estimates">
+  <% @table.player_estimates.each do |player, estimation| %>
+      <dt><%= player %></dt>
+      <dd><%= estimation %></dd>
+  <% end %>
+</dl>
+<hr>
+<p>
+  Average: <span id="average"><%= @table.average %></span>
+</p>
+<hr>
+<p>
+  Add an estimate: <br />
+  <%= form_tag("#", method: :post) do %>
+      <%= text_field_tag(:player) %>
+      <%= number_field_tag(:estimate) %>
+      <%= submit_tag("Estimate!") %>
+      <%= button_tag "Reset!", type: :reset %>
+  <% end %>
+</p>

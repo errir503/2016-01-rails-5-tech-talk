@@ -6,11 +6,11 @@ class TablesController < ApplicationController
 
   def estimate
     @table.estimate(params[:player], params[:estimate])
-    redirect_to "/#{@table.name}"
+    redirect_to table_path(@table.name)
   end
 
   private
   def set_table
-    @table = Table.find_or_create(params[:table_id])
+    @table = Table.find_or_create(params[:id])
   end
 end

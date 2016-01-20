@@ -6,11 +6,7 @@
 <%= link_to 'Edit', edit_forum_thread_path(@forum_thread) %>
 
 <div id="comments">
-  <% @forum_thread.forum_posts.each do |forum_post| %>
-    <div id="comments:<%= forum_post.id %>">
-      <%= simple_format forum_post.body %>
-    </div>
-  <% end %>
+    <%= render partial: 'comments', collection: @forum_thread.forum_posts, as: :forum_post %>
 </div>
 
 <hr />

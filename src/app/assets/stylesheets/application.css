@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+html.turbolinks-progress-bar::before {
+    background-color: red !important;
+    height: 5px !important;
+}
+

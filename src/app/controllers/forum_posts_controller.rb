@@ -5,7 +5,8 @@ class ForumPostsController < ApplicationController
     @forum_post = @forum_thread.forum_posts.new(forum_post_params)
     if @forum_post.save
       flash[:notice] = "New post submitted"
-      redirect_to @forum_thread
+      # render partial: 'comments', collection: @forum_thread.forum_posts, as: :forum_post, change: [:comments]    redirect_to @forum_thread, change: [:comments]
+      redirect_to @forum_thread, change: [:comments]
     else
       render partial: "form", change: :new_forum_post
     end

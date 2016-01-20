@@ -2,10 +2,11 @@
 
 To bootstrap a new application, run
 ```
-rbenv exec rails _5.0.0.beta1_ new MyApp
+rbenv exec rails _5.0.0.beta1_ new MyApp --api
 ```
 
 ```
+create
 create  README.md
 create  Rakefile
 create  config.ru
@@ -99,9 +100,19 @@ create  tmp
 create  tmp/.keep
 create  tmp/cache
 create  tmp/cache/assets
-create  vendor/assets/javascripts
-create  vendor/assets/javascripts/.keep
 create  vendor/assets/stylesheets
 create  vendor/assets/stylesheets/.keep
+remove  app/assets
+remove  lib/assets
+remove  tmp/cache/assets
+remove  vendor/assets
+remove  app/helpers
+remove  test/helpers
+remove  app/views
+remove  app/assets/javascripts
+remove  config/initializers/assets.rb
+remove  config/initializers/session_store.rb
+remove  config/initializers/cookies_serializer.rb
+remove  config/initializers/request_forgery_protection.rb
 run  bundle install
 ```

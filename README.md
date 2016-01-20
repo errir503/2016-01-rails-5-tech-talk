@@ -2,7 +2,7 @@
 
 To bootstrap a new application, run
 ```
-rbenv exec rails _4.2.5_ new MyApp
+rbenv exec rails _5.0.0.beta1_ new MyApp
 ```
 
 ```
